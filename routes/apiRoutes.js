@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const dbArray = require("../db/db.json");
-const {v4: uuid} = require('uuid');
+const {v4: uuid} = require('../helper/fsutils');
 const {
 
  readFromFile,
 readAndAppend ,
 writeToFile,
   } = require('./helper/fsutils');
+const { json } = require("express");
 
 
 
@@ -20,9 +21,16 @@ router.get("/notes", (req, res) => {
 router.post('/notes', (req, res) => {
    
     const newNote = req.body
-    dbArray.push(newNote)
-    console.log(dbArray)
-})
+    readFromFile('dbArray')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+        const result = json.filter((newNote) => newNote.note_id === note_id);
+        return result.lenght > 0
+        ? res.json(result)
+        : res.json('no note with that ID')
+    });
+    
+});
 
 // DELETE note bonus
 
