@@ -14,10 +14,25 @@ AS A small business owner
 I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 
-## Mock-Up
+## Features
 
-Created routes for note taker file system is not updated yet as still require more time to work on it . herouku deployement is not ready yet aswell. 
-this is not finished.
+- Create new notes with a title and content.
+- View and access previously saved notes.
+
+## ScreenShot
+
+![Alt text](/Assets/Notetaker%20screenshot.PNG)
+
+## Technologies Used
+
+- Express.js
+- Node.js
+- HTML
+- JavaScript
+- Heroku
+
+## Mockup
+This noteTaker app allows user to add note and see existing note .The existing note saved in Json file .Future devolpment we can add delete functionality aswell so user can delete if required.
 
 ## LINKS
 

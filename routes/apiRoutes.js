@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
 
-// Helper function to read data from a file
+
 const readFromFile = (filePath) => {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, "utf8", (err, data) => {
@@ -16,7 +16,7 @@ const readFromFile = (filePath) => {
   });
 };
 
-// Helper function to write data to a file
+
 const writeToFile = (filePath, data) => {
   return new Promise((resolve, reject) => {
     fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
@@ -29,7 +29,7 @@ const writeToFile = (filePath, data) => {
   });
 };
 
-// Function to create a new note and add it to the 'notes' array
+
 const createNewNote = async (note) => {
   const dbPath = path.join(__dirname, "../db/db.json");
 
@@ -52,7 +52,7 @@ const createNewNote = async (note) => {
   }
 };
 
-// GET notes
+
 router.get("/notes", async (req, res) => {
   const dbPath = path.join(__dirname, "../db/db.json");
   try {
@@ -63,7 +63,7 @@ router.get("/notes", async (req, res) => {
   }
 });
 
-// CREATE note
+
 router.post("/notes", async (req, res) => {
   try {
     const newNote = await createNewNote(req.body);
@@ -73,6 +73,6 @@ router.post("/notes", async (req, res) => {
   }
 });
 
-// DELETE note bonus
+
 
 module.exports = router;
